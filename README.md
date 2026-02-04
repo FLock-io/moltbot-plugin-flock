@@ -12,7 +12,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@openclawd/flock"><img src="https://img.shields.io/npm/v/@openclawd/flock.svg?style=for-the-badge&logo=npm&logoColor=white&label=npm&color=CB3837" alt="npm version"></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge" alt="License"></a>
-  <a href="https://github.com/FLock-io/moltbot-plugin-flock"><img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub"></a>
+  <a href="https://github.com/FLock-io/openclaw-plugin-flock"><img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub"></a>
   <a href="https://platform.flock.io"><img src="https://img.shields.io/badge/FLock-Platform-6366f1?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyek0xMiAyMGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+PC9zdmc+" alt="FLock Platform"></a>
 </p>
 
@@ -358,7 +358,7 @@ openclaw plugins disable flock
 ## Support
 
 - **FLock Issues**: Contact [FLock support](https://platform.flock.io)
-- **Plugin Issues**: [Open an issue](https://github.com/FLock-io/moltbot-plugin-flock/issues) on GitHub
+- **Plugin Issues**: [Open an issue](https://github.com/FLock-io/openclaw-plugin-flock/issues) on GitHub
 - **OpenClaw Issues**: [OpenClaw GitHub Issues](https://github.com/openclaw/openclaw/issues)
 
 ---

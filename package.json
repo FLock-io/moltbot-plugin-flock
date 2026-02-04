@@ -6,11 +6,11 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FLock-io/moltbot-plugin-flock.git"
+    "url": "https://github.com/FLock-io/openclaw-plugin-flock.git"
   },
-  "homepage": "https://github.com/FLock-io/moltbot-plugin-flock#readme",
+  "homepage": "https://github.com/FLock-io/openclaw-plugin-flock#readme",
   "bugs": {
-    "url": "https://github.com/FLock-io/moltbot-plugin-flock/issues"
+    "url": "https://github.com/FLock-io/openclaw-plugin-flock/issues"
   },
   "keywords": [
     "openclaw",
