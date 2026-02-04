@@ -1,4 +1,5 @@
-import { emptyPluginConfigSchema } from "clawdbot/plugin-sdk";
+import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
+import { emptyPluginConfigSchema } from "openclaw/plugin-sdk";
 
 const PROVIDER_ID = "flock";
 const PROVIDER_LABEL = "FLock API Platform";
@@ -10,7 +11,7 @@ const flockPlugin = {
   name: "FLock Provider",
   description: "FLock API Platform provider plugin (OpenAI-compatible)",
   configSchema: emptyPluginConfigSchema(),
-  register(api) {
+  register(api: OpenClawPluginApi) {
     api.registerProvider({
       id: PROVIDER_ID,
       label: PROVIDER_LABEL,
@@ -52,7 +53,30 @@ const flockPlugin = {
                     [PROVIDER_ID]: {
                       baseUrl: DEFAULT_BASE_URL,
                       api: "openai-completions",
-                      models: [],
+                      models: [
+                        {
+                          id: "minimax-m2.1",
+                          name: "MiniMax M2.1",
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                        },
+                        {
+                          id: "deepseek-v3.2",
+                          name: "DeepSeek V3.2",
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                        },
+                        {
+                          id: "kimi-k2-thinking",
+                          name: "Kimi K2 Thinking",
+                          reasoning: true,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                        },
+                      ],
                     },
                   },
                 },

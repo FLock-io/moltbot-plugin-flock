@@ -1,0 +1,13 @@
+{
+  "id": "flock",
+  "name": "FLock Provider",
+  "description": "FLock API Platform provider plugin (OpenAI-compatible)",
+  "providers": [
+    "flock"
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

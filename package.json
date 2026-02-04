@@ -1,8 +1,8 @@
 {
-  "name": "moltbot-plugin-flock",
-  "version": "0.1.6",
+  "name": "@openclawd/flock",
+  "version": "0.4.0",
   "type": "module",
-  "description": "FLock API Platform provider plugin for Moltbot",
+  "description": "FLock API Platform provider plugin for OpenClaw (Moltbot/Clawdbot)",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -13,6 +13,8 @@
     "url": "https://github.com/FLock-io/moltbot-plugin-flock/issues"
   },
   "keywords": [
+    "openclaw",
+    "openclaw-plugin",
     "moltbot",
     "moltbot-plugin",
     "clawdbot",
@@ -24,16 +26,28 @@
     "openai-compatible"
   ],
   "main": "index.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "node scripts/validate-package.cjs"
+  },
   "files": [
     "index.ts",
+    "openclaw.plugin.json",
     "moltbot.plugin.json",
     "clawdbot.plugin.json"
   ],
   "peerDependencies": {
-    "moltbot": ">=2026.1.0"
+    "openclaw": ">=2026.1.29"
   },
   "devDependencies": {
-    "moltbot": "^2026.1.0"
+    "openclaw": "^2026.1.30"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
   },
   "moltbot": {
     "extensions": [
