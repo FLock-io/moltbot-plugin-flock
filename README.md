@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <b>Use FLock API Platform as your AI model gateway in OpenClaw, Hermes Agent, Moltbot, or Clawdbot</b>
+  <b>Use FLock API Platform as your AI model gateway in OpenClaw / Moltbot / Clawdbot</b>
 </p>
 
 ---
@@ -39,14 +39,13 @@ This plugin lets you use **FLock API Platform** as a model provider in [OpenClaw
 
 ## Compatibility
 
-| Platform | Version | Status | Package |
-|----------|---------|--------|---------|
-| **OpenClaw** | `>= 2026.5.0` | Fully supported (recommended) | npm: `@openclawd/flock` |
-| **Hermes Agent** | `>= 0.13.0` | Supported via `hermes-provider/` | drop-in Python provider |
-| Moltbot | `>= 2026.1.0` | Supported via compatibility shim | npm: `@openclawd/flock` |
-| Clawdbot | `>= 2026.1.0` | Supported via compatibility shim | npm: `@openclawd/flock` |
+| Platform | Version | Status |
+|----------|---------|--------|
+| **OpenClaw** | `>= 2026.5.0` | Fully supported (recommended) |
+| Moltbot | `>= 2026.1.0` | Supported via compatibility shim |
+| Clawdbot | `>= 2026.1.0` | Supported via compatibility shim |
 
-> As of v2026.1.29, Moltbot/Clawdbot was rebranded to **OpenClaw**. In v2026.5.0+, OpenClaw migrated plugin entries to `definePluginEntry()` — this plugin requires that floor. As of Hermes Agent v0.13.0 ("Tenacity Release", May 2026), Nous Research ships a `ProviderProfile` plugin surface; the `hermes-provider/` directory in this repo registers FLock as a Hermes provider. See [Hermes Agent setup](#using-with-hermes-agent) below.
+> As of v2026.1.29, Moltbot/Clawdbot was rebranded to **OpenClaw**. In v2026.5.0+, OpenClaw migrated plugin entries to `definePluginEntry()` — this plugin requires that floor. This plugin supports all three names; the examples below use `openclaw` commands, but `moltbot` and `clawdbot` commands work identically.
 
 ---
 
@@ -179,51 +178,7 @@ Your API key is now securely stored in OpenClaw's auth profiles.
 
 ---
 
-## Using with Hermes Agent
 
-[Hermes Agent](https://github.com/NousResearch/hermes-agent) (Nous Research) is the announced successor to OpenClaw. v0.13.0+ ships a `ProviderProfile` plugin surface under `plugins/model-providers/`. This repo includes a drop-in Hermes provider at [`hermes-provider/`](hermes-provider/).
-
-### Install
-
-```bash
-# Copy the provider into your Hermes plugins directory
-cp -r hermes-provider "$HERMES_HOME/plugins/model-providers/flock"
-```
-
-`$HERMES_HOME` defaults to `~/.hermes` if unset.
-
-### Configure
-
-Set your FLock API key in the environment Hermes will see:
-
-```bash
-export FLOCK_API_KEY="your-flock-api-key"
-```
-
-Or add it to `$HERMES_HOME/.env`:
-
-```env
-FLOCK_API_KEY=your-flock-api-key
-```
-
-### Verify
-
-```bash
-hermes doctor          # should list flock as a healthy provider
-hermes model           # picker should show FLock models
-```
-
-### Migrating from OpenClaw
-
-If you've been using `@openclawd/flock` in OpenClaw and are moving to Hermes:
-
-```bash
-hermes claw migrate --dry-run --preset full
-```
-
-This carries over your **FLock API key** but does not install the plugin itself — you still need to drop the `hermes-provider/` directory into `$HERMES_HOME/plugins/model-providers/flock/` as shown above.
-
----
 
 ## Available Models
 

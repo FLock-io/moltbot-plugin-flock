@@ -1,5 +1,0 @@
-name: flock-provider
-kind: model-provider
-version: 0.5.0
-description: FLock API Platform provider for Hermes Agent (OpenAI-compatible)
-author: FLock.io
