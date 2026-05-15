@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+dist/
+.flock_api_key
+*.tgz
+__pycache__/
+*.pyc
+.DS_Store

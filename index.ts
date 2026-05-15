@@ -1,17 +1,15 @@
-import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { emptyPluginConfigSchema } from "openclaw/plugin-sdk";
+import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
 
 const PROVIDER_ID = "flock";
 const PROVIDER_LABEL = "FLock API Platform";
 const DOCS_URL = "https://docs.flock.io/flock-products/api-platform/api-endpoint";
 const DEFAULT_BASE_URL = "https://api.flock.io/v1";
 
-const flockPlugin = {
-  id: "flock",
+export default definePluginEntry({
+  id: PROVIDER_ID,
   name: "FLock Provider",
   description: "FLock API Platform provider plugin (OpenAI-compatible)",
-  configSchema: emptyPluginConfigSchema(),
-  register(api: OpenClawPluginApi) {
+  register(api) {
     api.registerProvider({
       id: PROVIDER_ID,
       label: PROVIDER_LABEL,
@@ -54,19 +52,24 @@ const flockPlugin = {
                       baseUrl: DEFAULT_BASE_URL,
                       api: "openai-completions",
                       models: [
+                        // Reasoning / thinking models
                         {
-                          id: "minimax-m2.1",
-                          name: "MiniMax M2.1",
+                          id: "qwen3-235b-a22b-thinking-2507",
+                          name: "Qwen 3 235B Thinking",
+                          reasoning: true,
                           input: ["text"],
                           contextWindow: 131072,
                           maxTokens: 8192,
+                          cost: { input: 0.23, output: 2.3, cacheRead: 0, cacheWrite: 0 },
                         },
                         {
-                          id: "deepseek-v3.2",
-                          name: "DeepSeek V3.2",
+                          id: "qwen3-235b-a22b-thinking-qwfin",
+                          name: "Qwen 3 235B Thinking (QWFin)",
+                          reasoning: true,
                           input: ["text"],
                           contextWindow: 131072,
                           maxTokens: 8192,
+                          cost: { input: 0.23, output: 2.3, cacheRead: 0, cacheWrite: 0 },
                         },
                         {
                           id: "kimi-k2-thinking",
@@ -75,6 +78,81 @@ const flockPlugin = {
                           input: ["text"],
                           contextWindow: 131072,
                           maxTokens: 8192,
+                          cost: { input: 0.6, output: 2.5, cacheRead: 0, cacheWrite: 0 },
+                        },
+                        // Instruct / chat models
+                        {
+                          id: "qwen3-30b-a3b-instruct-2507",
+                          name: "Qwen 3 30B Instruct",
+                          reasoning: false,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                          cost: { input: 0.2, output: 0.8, cacheRead: 0, cacheWrite: 0 },
+                        },
+                        {
+                          id: "qwen3-235b-a22b-instruct-2507",
+                          name: "Qwen 3 235B Instruct",
+                          reasoning: false,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                          cost: { input: 0.7, output: 2.8, cacheRead: 0, cacheWrite: 0 },
+                        },
+                        {
+                          id: "qwen3-30b-a3b-instruct-qmxai",
+                          name: "Qwen 3 30B Instruct (QMXAI)",
+                          reasoning: false,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                          cost: { input: 0.2, output: 0.8, cacheRead: 0, cacheWrite: 0 },
+                        },
+                        {
+                          id: "qwen3-30b-a3b-instruct-coding",
+                          name: "Qwen 3 30B Coding",
+                          reasoning: false,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                          cost: { input: 0.2, output: 0.8, cacheRead: 0, cacheWrite: 0 },
+                        },
+                        {
+                          id: "qwen3-30b-a3b-instruct-qmini",
+                          name: "Qwen 3 30B Instruct (QMini)",
+                          reasoning: false,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                          cost: { input: 0.2, output: 0.8, cacheRead: 0, cacheWrite: 0 },
+                        },
+                        // Other
+                        {
+                          id: "deepseek-v3.2",
+                          name: "DeepSeek V3.2",
+                          reasoning: false,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                          cost: { input: 0.28, output: 0.42, cacheRead: 0, cacheWrite: 0 },
+                        },
+                        {
+                          id: "deepseek-v3.2-dsikh",
+                          name: "DeepSeek V3.2 (DSIKH)",
+                          reasoning: false,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                          cost: { input: 0.28, output: 0.42, cacheRead: 0, cacheWrite: 0 },
+                        },
+                        {
+                          id: "minimax-m2.1",
+                          name: "MiniMax M2.1",
+                          reasoning: false,
+                          input: ["text"],
+                          contextWindow: 131072,
+                          maxTokens: 8192,
+                          cost: { input: 0.3, output: 1.2, cacheRead: 0, cacheWrite: 0 },
                         },
                       ],
                     },
@@ -92,6 +170,4 @@ const flockPlugin = {
       ],
     });
   },
-};
-
-export default flockPlugin;
+});

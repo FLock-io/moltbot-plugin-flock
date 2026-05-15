@@ -1,12 +1,12 @@
 {
   "name": "@openclawd/flock",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "type": "module",
   "description": "FLock API Platform provider plugin for OpenClaw (Moltbot/Clawdbot)",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FLock-io/openclaw-plugin-flock.git"
+    "url": "git+https://github.com/FLock-io/openclaw-plugin-flock.git"
   },
   "homepage": "https://github.com/FLock-io/openclaw-plugin-flock#readme",
   "bugs": {
@@ -25,38 +25,47 @@
     "ai",
     "openai-compatible"
   ],
-  "main": "index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "prepublishOnly": "node scripts/validate-package.cjs"
+    "build": "tsc -p .",
+    "prepublishOnly": "npm run build && node scripts/validate-package.cjs"
   },
   "files": [
-    "index.ts",
+    "dist",
     "openclaw.plugin.json",
     "moltbot.plugin.json",
     "clawdbot.plugin.json"
   ],
   "peerDependencies": {
-    "openclaw": ">=2026.1.29"
+    "openclaw": ">=2026.5.0"
   },
   "devDependencies": {
-    "openclaw": "^2026.1.30"
+    "openclaw": "^2026.5.7",
+    "typescript": "^5.6.0"
   },
   "openclaw": {
     "extensions": [
-      "./index.ts"
+      "./dist/index.js"
     ]
   },
   "moltbot": {
     "extensions": [
-      "./index.ts"
+      "./dist/index.js"
     ]
   },
   "clawdbot": {
     "extensions": [
-      "./index.ts"
+      "./dist/index.js"
     ]
   }
 }

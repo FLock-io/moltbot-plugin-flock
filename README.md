@@ -41,11 +41,11 @@ This plugin lets you use **FLock API Platform** as a model provider in [OpenClaw
 
 | Platform | Version | Status |
 |----------|---------|--------|
-| **OpenClaw** | `>= 2026.1.29` | Fully supported (recommended) |
+| **OpenClaw** | `>= 2026.5.0` | Fully supported (recommended) |
 | Moltbot | `>= 2026.1.0` | Supported via compatibility shim |
 | Clawdbot | `>= 2026.1.0` | Supported via compatibility shim |
 
-> As of v2026.1.29, Moltbot/Clawdbot was rebranded to **OpenClaw**. This plugin supports all three names. The examples below use `openclaw` commands, but `moltbot` and `clawdbot` commands work identically.
+> As of v2026.1.29, Moltbot/Clawdbot was rebranded to **OpenClaw**. In v2026.5.0+, OpenClaw migrated plugin entries to `definePluginEntry()` — this plugin requires that floor. This plugin supports all three names; the examples below use `openclaw` commands, but `moltbot` and `clawdbot` commands work identically.
 
 ---
 
